@@ -1,0 +1,10 @@
+# General OS files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Node / tooling (in case you add it later)
+node_modules/
+dist/
+build/
+
