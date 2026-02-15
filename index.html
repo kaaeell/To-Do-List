@@ -7,8 +7,43 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="app">
-    <h1 class="title">To Do List</h1>
+  <!-- Before page: name + purpose -->
+  <section id="intro-page" class="intro-page">
+    <div class="intro-card">
+      <h1 class="intro-title">Before we begin</h1>
+      <p class="intro-subtitle">Tell us a bit about yourself</p>
+
+      <form id="intro-form" class="intro-form">
+        <label class="intro-label" for="user-name">Your name</label>
+        <input
+          id="user-name"
+          class="intro-input"
+          type="text"
+          placeholder="e.g. Alex"
+          autocomplete="name"
+          required
+        />
+
+        <label class="intro-label" for="user-purpose">What are you using this for?</label>
+        <textarea
+          id="user-purpose"
+          class="intro-textarea"
+          placeholder="e.g. Daily tasks, work projects, shopping..."
+          rows="3"
+        ></textarea>
+
+        <button class="intro-button" type="submit">Get started</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Main to-do app (hidden until intro is submitted) -->
+  <div id="app" class="app hidden">
+    <div class="app-header">
+      <h1 class="title"><span id="welcome-text">To Do List</span></h1>
+      <p id="purpose-subtitle" class="purpose-subtitle"></p>
+      <button type="button" id="change-profile" class="change-profile" aria-label="Change name or purpose">Change profile</button>
+    </div>
 
     <form id="todo-form" class="todo-form">
       <input
@@ -22,13 +57,23 @@
       <button class="add-button" type="submit">Add</button>
     </form>
 
+    <div id="stats" class="stats"></div>
+
+    <div class="filter-tabs" role="tablist">
+      <button type="button" class="filter-tab active" data-filter="all" role="tab">All</button>
+      <button type="button" class="filter-tab" data-filter="active" role="tab">Active</button>
+      <button type="button" class="filter-tab" data-filter="completed" role="tab">Completed</button>
+    </div>
+
     <ul id="todo-list" class="todo-list">
       <!-- Tasks will appear here -->
     </ul>
 
-    <button id="clear-completed" class="clear-button" type="button">
-      Clear completed tasks
-    </button>
+    <div class="app-footer">
+      <button id="clear-completed" class="clear-button" type="button">
+        Clear completed
+      </button>
+    </div>
   </div>
 
   <script src="script.js" defer></script>
